@@ -9,12 +9,20 @@
 <body class="blog-article">
     <header>
         <h1><a href="blog_index.html">My Awesome Blog</a></h1>
-        <nav class="primary-navigation"><ul><li><a href="blog_index.html">Home</a></li><li><a href="#">About</a></li><li><a href="#">Archives</a></li><li><a href="#">Contact</a></li></ul></nav>
+        <nav class="primary-navigation"><ul><li><a href="blog_index.html">Home</a></li><li><a href="#">About</a></li><li><a href="#">Archives</a></li><li><a href="#">Contact</a></li><li><a href="#rss">RSS Feed</a></li></ul></nav>
         <button id="theme-switcher">Switch Theme</button>
     </header>
     <main>
         <div class="main-content-area">
             <article>
+                <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <ol>
+                <li><a href="blog_index.html">Home</a></li>
+                <li><a href="#sample-category">Sample Category</a></li>
+                <li><a href="#sample-subcategory">Sample Subcategory</a></li>
+                <li class="active" aria-current="page">Blog Post Title 1</li>
+            </ol>
+        </nav>
                 <h2>Blog Post Title 1</h2>
                 <p class="date">Published on January 1, 2024</p>
                 <p>This is the full content of the first blog post. It can be multiple paragraphs long.</p>
@@ -36,6 +44,10 @@
     }
 
     greet("Reader");</code></pre>
+            <div class="video-responsive-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p><em>A sample video embedded above.</em></p>
                 <p>More paragraph text after all the example elements.</p>
                 <p>Here is an example of an unordered list:</p>
                 <ul>

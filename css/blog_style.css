@@ -20,7 +20,7 @@
     --font-heading: 'Helvetica Neue', Arial, sans-serif; /* A cleaner sans-serif for headings */
     /* Alternative heading font: --font-heading: 'Playfair Display', serif; */
 
-    --content-max-width: 800px; /* For readability of long articles */
+    --content-max-width: 1100px; /* For readability of long articles */
 }
 
 body {
@@ -164,6 +164,84 @@ main {
     .sidebar {
         flex-basis: 30%;
     }
+}
+
+/* --- Breadcrumb Navigation Styling --- */
+.breadcrumb-nav {
+    margin-bottom: 1.5em; /* Space below breadcrumbs, above article title */
+    font-size: 0.9em;
+    padding: 0.5em 0;
+    /* border-bottom: 1px solid var(--border-color); Optional: if a separator line is desired */
+}
+
+.breadcrumb-nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange items inline and allow wrapping */
+    flex-wrap: wrap; /* Allow breadcrumbs to wrap on small screens */
+    align-items: center;
+}
+
+.breadcrumb-nav li {
+    display: inline-block; /* Fallback if flex not supported, though flex is on ol */
+    /* margin-right: 0.5em; Spacing handled by separator's margin */
+}
+
+.breadcrumb-nav li a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.breadcrumb-nav li a:hover,
+.breadcrumb-nav li a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Separator styling */
+.breadcrumb-nav li + li::before { /* Selects all LIs that are preceded by another LI */
+    content: ">"; /* Or use "F" for a slash, or other preferred separator */
+    color: var(--text-color); /* Use text-color or a more subtle color */
+    opacity: 0.7;
+    margin: 0 0.6em; /* Space around the separator */
+    display: inline-block;
+}
+
+/* Current page styling */
+.breadcrumb-nav li.active {
+    color: var(--text-color); /* Current page is not a link, use main text color */
+    font-weight: normal; /* Or bold if preferred */
+    opacity: 0.85; /* Slightly subdued if desired */
+}
+
+/* Dark theme considerations for separator and active item if needed */
+body.dark-theme .breadcrumb-nav li + li::before {
+    color: var(--text-color); /* Ensure this inherits correctly */
+}
+
+body.dark-theme .breadcrumb-nav li.active {
+    color: var(--text-color); /* Ensure this inherits correctly */
+}
+
+/* Responsive YouTube Video Embed */
+.video-responsive-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (height/width * 100) */
+    margin: 1.5em 0; /* Similar to figure/image margins */
+}
+
+.video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove default iframe border */
 }
 
 /* Category Tree Interactivity */
