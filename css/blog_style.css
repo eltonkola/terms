@@ -166,6 +166,54 @@ main {
     }
 }
 
+/* --- Sidebar RSS Link Styling --- */
+.connect-widget .rss-sidebar-link {
+    display: inline-block; /* Allows padding and other block-like properties */
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    padding: 0.3em 0; /* Add some padding if it were to have a background/border */
+    transition: color 0.2s ease-in-out;
+}
+
+.connect-widget .rss-sidebar-link:hover,
+.connect-widget .rss-sidebar-link:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Attempt to add a Unicode character as an icon.
+   U+1F4F6 (ANTENNA BARS) is a possibility, or just text "RSS: ".
+   FontAwesome's RSS icon is U+F29E, but that requires FontAwesome.
+   Let's try with a simple text prefix or a more generic symbol for now,
+   as specific RSS Unicode symbols can be problematic with font support.
+   A common approach is to use a background image (SVG icon) for this,
+   but that's outside the scope of "CSS-only icon" unless it's a data URI.
+
+   For simplicity, let's ensure good text styling and optionally add a simple prefix.
+   A unicode character that is sometimes used for "feed" like things is  (U+F270)
+   but it's in a Private Use Area, relying on font support (like FontAwesome having mapped it there).
+   Let's use a safer, more descriptive approach if a good unicode char isn't found.
+   Using a simple text prefix or a unicode character that implies "signal" or "broadcast".
+*/
+
+.connect-widget .rss-sidebar-link::before {
+    content: "📶 "; /* ANTENNA BARS (U+1F4F6) - a generic signal icon */
+    /* Alternatively, content: "[RSS] "; */
+    /* Or, if a specific visual icon font was used, content: '\f09e'; font-family: 'FontAwesome'; */
+    margin-right: 0.3em;
+    font-weight: normal; /* Icon might not need to be bold */
+}
+
+/* Ensure the widget title and paragraph containing the link have good spacing */
+.connect-widget h4 {
+    margin-bottom: 0.5em; /* Default widget h4 has 0.8em, this is fine */
+}
+
+.connect-widget p {
+    margin-bottom: 0; /* Remove bottom margin if this is the only item in p */
+}
+
 /* --- Breadcrumb Navigation Styling --- */
 .breadcrumb-nav {
     margin-bottom: 1.5em; /* Space below breadcrumbs, above article title */
